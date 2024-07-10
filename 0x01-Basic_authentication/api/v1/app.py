@@ -31,7 +31,9 @@ def not_found(error) -> str:
 
 @app.before_request
 def before_request():
-    """"""
+    """
+    Filter each request before it's handled by the proper route
+    """
     if auth is None:
         pass
     else:
