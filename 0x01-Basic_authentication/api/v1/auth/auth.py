@@ -13,11 +13,11 @@ class Auth:
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """returns False """
-        if path in excluded_paths:
-            return False
-        elif excluded_paths == [] or excluded_paths is None or path is None:
+        if path is None:
             return True
-        elif "/api/v1/status/" in excluded_paths:
+        elif excluded_paths is None or excluded_paths == []:
+            return True
+        elif path in excluded_paths:
             return False
         else:
             for i in excluded_paths:
@@ -28,6 +28,7 @@ class Auth:
                 if i[-1] == "*":
                     if path.startswith(i[:-1]):
                         return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """handles the header"""
