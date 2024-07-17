@@ -49,7 +49,7 @@ class DB:
         fields, values = [], []
         for key, value in kwargs.items():
             if hasattr(User, key):
-                fields.append(getattrr(User, key))
+                fields.append(getattr(User, key))
                 values.append(value)
             else:
                 raise InvalidRequestError()
