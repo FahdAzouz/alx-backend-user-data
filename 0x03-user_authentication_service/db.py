@@ -64,7 +64,7 @@ class DB:
         """update user based on id"""
         user = self.find_user_by(id=user_id)
         if user is None:
-            return None
+            return
         update_src = {}
         for key, value in kwargs.items():
             if hasattr(User, key):
