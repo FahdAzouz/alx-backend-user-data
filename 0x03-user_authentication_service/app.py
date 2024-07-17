@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """App module"""
-from flask import Flask
-import flask
+from flask import Flask, jsonify
 
 
-app = Flask()
+app = Flask(__name__)
 
 
-@app.route('/', methods['GET'], strict_slashes=False)
+@app.route('/', methods=['GET'], strict_slashes=False)
 def return_payload():
     '''return json hello'''
     message = {"message", "Bienvenue"}
-    return flask.jsonify(message)
+    return jsonify(message)
 
 
 if __name__ == "__main__":
