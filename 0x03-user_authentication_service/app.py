@@ -33,11 +33,11 @@ def users() -> str:
 
 @app.route('/sessions', methods=['POST'], strict_slashes=False)
 def login() -> str:
-    '''if the login information is incorrect, 
+    '''if the login information is incorrect,
     use flask.abort to respond with a 401 HTTP status.
-    Otherwise, create a new session for the user, store 
-    it the session ID as a cookie with key 
-    "session_id" on the response''' 
+    Otherwise, create a new session for the user, store
+    it the session ID as a cookie with key
+    "session_id" on the response'''
     email, password = request.form.get("email"), request.form.get("password")
     if AUTH.valid_login(email, password):
         session_id = AUTH.create_session(email)
